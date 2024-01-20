@@ -25,7 +25,7 @@ if  __name__ == "__main__":
     os.mkdir(f"artifact/{folder_name}")
     
     
-    writer = SummaryWriter(log_dir = f"artifacts/{folder_name}/tensorboard_logs")
+    writer = SummaryWriter(log_dir = f"artifact/{folder_name}/tensorboard_logs")
     
     
     #load the model
