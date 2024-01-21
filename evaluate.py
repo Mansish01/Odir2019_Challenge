@@ -5,7 +5,7 @@ from sklearn.metrics import classification_report, confusion_matrix
 from tqdm import tqdm
 
 from src.dataloader import val_data_loader
-from src.models.model_utils import parse_arguments, load_model, get_device
+# from src.models.model_utils import parse_arguments, load_model, get_device
 
 def evaluate_model(model,val_loader, device):
     model.eval()
@@ -56,24 +56,22 @@ def save_classification_report(class_report, folder_name):
 
 
 if __name__ == "__main__":
-    args = parse_arguments(training=False)
-    device = get_device()
-
+   
     # Load model
-    model = load_model(args.model, num_labels=8, device=device)
+    model = load_model(model, num_labels=8)
 
     # Load checkpoint
-    checkpoint = torch.load(args.checkpoint, map_location=device)
+    checkpoint = torch.load(checkpoint)
     model.load_state_dict(state_dict=checkpoint)
 
     # Evaluate the model
-    all_labels, all_preds = evaluate_model(model, val_data_loader, device)
+    all_labels, all_preds = evaluate_model(model, val_data_loader)
 
     # Calculate metrics
     conf_matrix, class_report = calculate_metrics(all_labels, all_preds)
 
     # Plot confusion matrix
-    plot_confusion_matrix(conf_matrix, args.folder_name)
+    plot_confusion_matrix(conf_matrix, folder_name)
 
     # Save classification report
-    save_classification_report(class_report, args.folder_name)
+    save_classification_report(class_report, folder_name)
