@@ -2,6 +2,7 @@ data
 Data
 venv
 artifact
+artifacts
 __pycache__/
 
 # Byte-compiled / optimized / DLL files

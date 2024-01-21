@@ -2,13 +2,13 @@ from src.Customdataset import  ImageDataset
 from torch.utils.data import DataLoader
 
 from src.transforms import transforms
-
+import os
 
 BATCH_SIZE = 10
 
-train_csv_path =r"Data\processed_train_ODIR-5K.csv" 
+train_csv_path = os.path.join("Data" , "processed_train_ODIR-5k.csv")
 # test_csv_path = r"Data\processed_test_ODIR-5k.csv"
-val_csv_path = r"Data\processed_val_ODIR-5K.csv"
+val_csv_path = os.path.join("Data" , "processed_test_ODIR-5k.csv")
 
 train_dataset = ImageDataset(csv_path= train_csv_path , transform= transforms)
 val_dataset = ImageDataset(csv_path= val_csv_path, transform= transforms)

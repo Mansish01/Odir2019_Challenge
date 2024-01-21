@@ -22,10 +22,10 @@ if  __name__ == "__main__":
     format_dt = dt.strftime("%Y-%m-%d-%H-%M-%S")
     #create folder
     folder_name = f"run-{format_dt}"
-    os.mkdir(f"artifact/{folder_name}")
+    os.mkdir(f"artifacts/{folder_name}")
     
     
-    writer = SummaryWriter(log_dir = f"artifact/{folder_name}/tensorboard_logs")
+    writer = SummaryWriter(log_dir = f"artifacts/{folder_name}/tensorboard_logs")
     
     
     #load the model
