@@ -6,9 +6,9 @@ import os
 
 BATCH_SIZE = 10
 
-train_csv_path = os.path.join("Data" , "processed_train_ODIR-5k.csv")
+train_csv_path = os.path.join("Data" , "processed_train_ODIR-5K.csv")
 # test_csv_path = r"Data\processed_test_ODIR-5k.csv"
-val_csv_path = os.path.join("Data" , "processed_test_ODIR-5k.csv")
+val_csv_path = os.path.join("Data" , "processed_test_ODIR-5K.csv")
 
 train_dataset = ImageDataset(csv_path= train_csv_path , transform= transforms)
 val_dataset = ImageDataset(csv_path= val_csv_path, transform= transforms)
