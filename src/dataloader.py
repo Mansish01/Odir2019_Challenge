@@ -6,9 +6,9 @@ from src.transforms import transforms
 
 BATCH_SIZE = 10
 
-train_csv_path =r"/home/manish/Desktop/Odir_2019_challenge/Odir2019_Challenge/Data/processed_train_ODIR-5K.csv" 
-# test_csv_path = r"/home/manish/Desktop/Project Optic/Project_opthalmology/Data/processed_test_ODIR-5k.csv"
-val_csv_path = r"/home/manish/Desktop/Odir_2019_challenge/Odir2019_Challenge/Data/processed_val_ODIR-5K.csv"
+train_csv_path =r"Data\processed_train_ODIR-5K.csv" 
+# test_csv_path = r"Data\processed_test_ODIR-5k.csv"
+val_csv_path = r"Data\processed_val_ODIR-5K.csv"
 
 train_dataset = ImageDataset(csv_path= train_csv_path , transform= transforms)
 val_dataset = ImageDataset(csv_path= val_csv_path, transform= transforms)
