@@ -36,8 +36,8 @@ if  __name__ == "__main__":
     
     #3. Train
     
-    LR= 0.0001
-    EPOCHS = 10
+    LR= 0.001
+    EPOCHS = 20
     criterion = nn.NLLLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr = LR)
     epochwise_train_losses = []
@@ -137,16 +137,16 @@ if  __name__ == "__main__":
         epochwise_val_acc.append(avg_val_acc)
         epochwise_train_acc.append(avg_train_acc)
         
-        if epoch >= MIN_EPOCHS:
-            avg_acc = np.mean(epochwise_val_acc[-5:])
-            avg_acc_next = np.mean(epochwise_val_acc[-6:-1])
+        # if epoch >= MIN_EPOCHS:
+        #     avg_acc = np.mean(epochwise_val_acc[-5:])
+        #     avg_acc_next = np.mean(epochwise_val_acc[-6:-1])
 
-            difference = avg_acc - avg_acc_next
-            print(f"Difference: {difference:.3f}")
+        #     difference = avg_acc - avg_acc_next
+        #     print(f"Difference: {difference:.3f}")
             
-            if( difference <= limit):
-                print("the last epoch was", epoch)
-                break
+        #     if( difference <= limit):
+        #         print("the last epoch was", epoch)
+        #         break
         
         
        
