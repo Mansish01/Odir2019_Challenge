@@ -71,17 +71,17 @@ if  __name__ == "__main__":
             # print("loss",loss)
             # values, indices = torch.max(model_out, dim =1)
         
-        for images , labels in train_dataloader:
-            images, labels = images.to(device), labels.to(device)
-            model_out = model(images)
-            model_out = F.log_softmax(model_out , dim =1)
-            loss = criterion(model_out, labels)
-            train_running_loss += loss.item()* images.size(0)
+        # for images , labels in train_dataloader:
+        #     images, labels = images.to(device), labels.to(device)
+        #     model_out = model(images)
+        #     model_out = F.log_softmax(model_out , dim =1)
+        #     loss = criterion(model_out, labels)
+        #     train_running_loss += loss.item()* images.size(0)
            
-            #find acuracy           
-            preds = torch.argmax(model_out, dim=1)
-            acc = (preds== labels).float().mean()
-            train_running_accuracy += acc.item() 
+        #     #find acuracy           
+        #     preds = torch.argmax(model_out, dim=1)
+        #     acc = (preds== labels).float().mean()
+        #     train_running_accuracy += acc.item() 
               
         model.eval()  #change into validation mode
         for images , labels in val_dataloader:
@@ -154,19 +154,19 @@ if  __name__ == "__main__":
        
         print(f"epoch {epoch} train loss: {avg_train_loss:.3f} \t val loss : {avg_val_loss:.3f} \t train accuracy : {avg_train_acc:.3f} \t val accuracy : {avg_val_acc:.3f}")
 
-        checkpoint_name = f"artifacts/{folder_name}/ckpt-{model.__class__.__name__}-val={avg_val_acc:.3f}-epoch={epoch}"
-        checkpoint = {
-            "epoch" : epoch, 
-            "model_state_dict": model.state_dict(),
-            "optimizer_state_dict" : optimizer.state_dict(), 
-            "train_loss": avg_train_loss, 
-            "val_loss": avg_val_loss, 
-            "train_acc": avg_train_acc, 
-            "val_acc" : avg_val_acc
+        # checkpoint_name = f"artifacts/{folder_name}/ckpt-{model.__class__.__name__}-val={avg_val_acc:.3f}-epoch={epoch}"
+        # checkpoint = {
+        #     "epoch" : epoch, 
+        #     "model_state_dict": model.state_dict(),
+        #     "optimizer_state_dict" : optimizer.state_dict(), 
+        #     "train_loss": avg_train_loss, 
+        #     "val_loss": avg_val_loss, 
+        #     "train_acc": avg_train_acc, 
+        #     "val_acc" : avg_val_acc
             
-        }
+        # }
         
-        torch.save(checkpoint ,  checkpoint_name)
+        # torch.save(checkpoint ,  checkpoint_name)
     
     print(f" the best val acc is {best_val_accuracy} from epoch {epoch_no}")
                 
