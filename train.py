@@ -78,10 +78,10 @@ if  __name__ == "__main__":
         #     loss = criterion(model_out, labels)
         #     train_running_loss += loss.item()* images.size(0)
            
-        #     #find acuracy           
-        #     preds = torch.argmax(model_out, dim=1)
-        #     acc = (preds== labels).float().mean()
-        #     train_running_accuracy += acc.item() 
+            #find acuracy           
+            preds = torch.argmax(model_out, dim=1)
+            acc = (preds== labels).float().mean()
+            train_running_accuracy += acc.item() 
               
         model.eval()  #change into validation mode
         for images , labels in val_dataloader:
