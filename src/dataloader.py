@@ -4,7 +4,7 @@ from torch.utils.data import DataLoader
 from src.transforms import transforms
 import os
 
-BATCH_SIZE = 20
+BATCH_SIZE = 15
 
 train_csv_path = os.path.join("Data" , "processed_train_ODIR-5K.csv")
 # test_csv_path = r"Data\processed_test_ODIR-5k.csv"
