@@ -11,6 +11,9 @@ from datetime import datetime
 from torch.utils.tensorboard import SummaryWriter
 from src.dataloader import train_dataloader , val_dataloader
 from models.models import Dense161Model
+
+from IPython.display import display
+
 #3. Training 
 
 if  __name__ == "__main__":
@@ -38,7 +41,7 @@ if  __name__ == "__main__":
     #3. Train
     
     LR= 0.001
-    EPOCHS = 20
+    EPOCHS = 2
     criterion = nn.NLLLoss()
     optimizer = torch.optim.Adam(model.parameters(), lr = LR)
     epochwise_train_losses = []
@@ -187,7 +190,10 @@ if  __name__ == "__main__":
     ax2.plot(epochwise_val_acc , label="val loss")
     ax2.set_title("train vs validation accuracy")
     ax2.legend()
+
     plt.show()
+
+    display(fig)
 
 
     # print(epochwise_train_losses)
